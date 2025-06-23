@@ -92,7 +92,32 @@ class PipelineProcessor:
                         self.pc = self.labels[label] - 1  # -1 porque el step suma +1 después
                     else:
                         print(f"Etiqueta no encontrada: {label}")
+           
+            elif op == "AND":
+                rd = int(parts[1][1:])
+                rs1 = int(parts[2][1:])
+                rs2 = int(parts[3][1:])
+                self.registers[rd] = self.registers[rs1] & self.registers[rs2]
 
+            elif op == "OR":
+                rd = int(parts[1][1:])
+                rs1 = int(parts[2][1:])
+                rs2 = int(parts[3][1:])
+                self.registers[rd] = self.registers[rs1] | self.registers[rs2]
+
+            elif op == "XOR":
+                rd = int(parts[1][1:])
+                rs1 = int(parts[2][1:])
+                rs2 = int(parts[3][1:])
+                self.registers[rd] = self.registers[rs1] ^ self.registers[rs2]
+                        
+            elif op == "SLL":
+                rd = int(parts[1][1:])
+                rs1 = int(parts[2][1:])
+                rs2 = int(parts[3][1:])
+                shift_amount = self.registers[rs2] & 0x1F  # Solo 5 bits permitidos
+                self.registers[rd] = self.registers[rs1] << shift_amount 
+                                    
             else:
                 print(f"Instrucción no soportada: {op}")
 

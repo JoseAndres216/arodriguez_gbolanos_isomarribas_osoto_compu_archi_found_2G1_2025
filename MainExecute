@@ -1,20 +1,35 @@
-from PyQt6 import QtCore, QtGui, QtWidgets
-from MainWindow import Ui_MainWindow
 from PyQt6.QtWidgets import QMainWindow, QApplication
 import sys
 import MainWindowController, MainWindow
 import PipelineProcessor
 
+programaAndOrXorSll = """
+ADDI x1, x0, 15
+ADDI x2, x0, 1
+AND x3, x1, x2
+OR x4, x1, x2
+XOR x5, x1, x2
+SLL x6, x1, x2
+"""
 
-programa = """
+programaEscrituraLectura = """
 ADDI x1, x0, 100
 ADDI x2, x0, 42
 SW x2, 0(x1)
 ADDI x3, x0, 0
 LW x3, 0(x1)
 """
+
+programaConSaltos = """
+ADDI x1, x0, 5
+ADDI x2, x0, 5
+BEQ x1, x2, igual
+ADDI x3, x0, 555
+igual:
+ADDI x6, x0, 42
+"""
 cpu = PipelineProcessor.PipelineProcessor()
-cpu.load_program(programa)
+cpu.load_program(programaAndOrXorSll)
 while cpu.running:
     cpu.step()
 
