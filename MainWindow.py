@@ -12,10 +12,11 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1600, 900)
         MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet("background-color: #FDF5E6;")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
+        self.centralwidget.setMinimumSize(QtCore.QSize(1596, 800))
+        self.centralwidget.setStyleSheet("background-color: #f0f0f0;")
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayoutWidget_5 = QtWidgets.QWidget(parent=self.centralwidget)
         self.verticalLayoutWidget_5.setGeometry(QtCore.QRect(0, 0, 2368, 1095))
@@ -40,7 +41,6 @@ class Ui_MainWindow(object):
         font.setFamily("Cambria")
         font.setPointSize(12)
         font.setBold(False)
-        font.setWeight(50)
         self.lblInstructions.setFont(font)
         self.lblInstructions.setStyleSheet("color: #020A19;")
         self.lblInstructions.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)

@@ -2,14 +2,6 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>1600</width>
-    <height>900</height>
-   </rect>
-  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -20,6 +12,15 @@
    <string notr="true">background-color: #FDF5E6;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="minimumSize">
+    <size>
+     <width>1596</width>
+     <height>800</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #f0f0f0;</string>
+   </property>
    <widget class="QWidget" name="verticalLayoutWidget_5">
     <property name="geometry">
      <rect>
@@ -34,7 +35,7 @@
       <number>5</number>
      </property>
      <property name="sizeConstraint">
-      <enum>QLayout::SetMaximumSize</enum>
+      <enum>QLayout::SizeConstraint::SetMaximumSize</enum>
      </property>
      <property name="leftMargin">
       <number>10</number>
@@ -54,7 +55,7 @@
         <number>5</number>
        </property>
        <property name="sizeConstraint">
-        <enum>QLayout::SetMinimumSize</enum>
+        <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
        </property>
        <property name="leftMargin">
         <number>0</number>
@@ -74,7 +75,7 @@
           <number>5</number>
          </property>
          <property name="sizeConstraint">
-          <enum>QLayout::SetMinimumSize</enum>
+          <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
          </property>
          <item>
           <widget class="QLabel" name="lblInstructions">
@@ -88,7 +89,6 @@
             <font>
              <family>Cambria</family>
              <pointsize>12</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -99,7 +99,7 @@
             <string>Instrucciones</string>
            </property>
            <property name="alignment">
-            <set>Qt::AlignCenter</set>
+            <set>Qt::AlignmentFlag::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -139,7 +139,7 @@
           <number>5</number>
          </property>
          <property name="sizeConstraint">
-          <enum>QLayout::SetDefaultConstraint</enum>
+          <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
          </property>
          <property name="rightMargin">
           <number>0</number>
@@ -171,7 +171,7 @@
             <string>Instruccion actual</string>
            </property>
            <property name="alignment">
-            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
            </property>
           </widget>
          </item>
@@ -208,7 +208,7 @@
             <number>5</number>
            </property>
            <property name="sizeConstraint">
-            <enum>QLayout::SetMinimumSize</enum>
+            <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
            </property>
            <item>
             <layout class="QVBoxLayout" name="vlayExecutionMode" stretch="0,0">
@@ -216,7 +216,7 @@
               <number>5</number>
              </property>
              <property name="sizeConstraint">
-              <enum>QLayout::SetMinimumSize</enum>
+              <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
              </property>
              <item>
               <widget class="QLabel" name="lblExecutionMode">
@@ -252,7 +252,7 @@
                 <number>5</number>
                </property>
                <property name="sizeConstraint">
-                <enum>QLayout::SetMinimumSize</enum>
+                <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
                </property>
                <item>
                 <widget class="QRadioButton" name="rbtnStepByStep">
@@ -376,7 +376,7 @@
               <number>5</number>
              </property>
              <property name="sizeConstraint">
-              <enum>QLayout::SetMinimumSize</enum>
+              <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
              </property>
              <item>
               <widget class="QLabel" name="lblHazards">
@@ -412,7 +412,7 @@
                 <number>5</number>
                </property>
                <property name="sizeConstraint">
-                <enum>QLayout::SetMinimumSize</enum>
+                <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
                </property>
                <item>
                 <widget class="QRadioButton" name="rbtnWithoutHazards">
@@ -545,7 +545,7 @@
         <number>5</number>
        </property>
        <property name="sizeConstraint">
-        <enum>QLayout::SetMinimumSize</enum>
+        <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
        </property>
        <property name="leftMargin">
         <number>0</number>
@@ -565,7 +565,7 @@
           <number>5</number>
          </property>
          <property name="sizeConstraint">
-          <enum>QLayout::SetMinimumSize</enum>
+          <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
          </property>
          <item>
           <widget class="QLabel" name="lblInstructionRecord">
@@ -594,7 +594,7 @@
             <string>Historial de instrucciones</string>
            </property>
            <property name="alignment">
-            <set>Qt::AlignCenter</set>
+            <set>Qt::AlignmentFlag::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -629,7 +629,7 @@
          <item>
           <spacer name="vsapcInstructionsRecord">
            <property name="orientation">
-            <enum>Qt::Vertical</enum>
+            <enum>Qt::Orientation::Vertical</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -647,7 +647,7 @@
           <number>5</number>
          </property>
          <property name="sizeConstraint">
-          <enum>QLayout::SetMinimumSize</enum>
+          <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
          </property>
          <item>
           <widget class="QLabel" name="lblExecutionInformation">
@@ -683,7 +683,7 @@
             <number>5</number>
            </property>
            <property name="sizeConstraint">
-            <enum>QLayout::SetMinimumSize</enum>
+            <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
            </property>
            <property name="leftMargin">
             <number>25</number>
@@ -743,7 +743,7 @@
             <number>5</number>
            </property>
            <property name="sizeConstraint">
-            <enum>QLayout::SetMinimumSize</enum>
+            <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
            </property>
            <property name="leftMargin">
             <number>25</number>
@@ -851,7 +851,7 @@
               <string notr="true">background-color: #F6F6F6; color: #020A19;</string>
              </property>
              <property name="inputMethodHints">
-              <set>Qt::ImhMultiLine</set>
+              <set>Qt::InputMethodHint::ImhMultiLine</set>
              </property>
             </widget>
            </item>
@@ -863,7 +863,7 @@
             <number>5</number>
            </property>
            <property name="sizeConstraint">
-            <enum>QLayout::SetMinimumSize</enum>
+            <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
            </property>
            <property name="leftMargin">
             <number>25</number>
@@ -920,7 +920,7 @@
          <item>
           <spacer name="vspacExecutionTime">
            <property name="orientation">
-            <enum>Qt::Vertical</enum>
+            <enum>Qt::Orientation::Vertical</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
@@ -964,7 +964,7 @@
             <string>Valores de registros</string>
            </property>
            <property name="alignment">
-            <set>Qt::AlignCenter</set>
+            <set>Qt::AlignmentFlag::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -974,7 +974,7 @@
             <number>5</number>
            </property>
            <property name="sizeConstraint">
-            <enum>QLayout::SetMinimumSize</enum>
+            <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
            </property>
            <item>
             <widget class="QPlainTextEdit" name="txtedtRegistersLabels">
@@ -1063,7 +1063,7 @@ t6
          <item>
           <spacer name="vspacRegisters">
            <property name="orientation">
-            <enum>Qt::Vertical</enum>
+            <enum>Qt::Orientation::Vertical</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>

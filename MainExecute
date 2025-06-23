@@ -1,0 +1,37 @@
+from PyQt6 import QtCore, QtGui, QtWidgets
+from MainWindow import Ui_MainWindow
+from PyQt6.QtWidgets import QMainWindow, QApplication
+import sys
+import MainWindowController, MainWindow
+import PipelineProcessor
+
+
+
+programa = """
+ADDI x1, x0, 5
+ADDI x2, x0, 10
+ADD x3, x1, x2
+SW x3, 0(x0)
+LW x4, 0(x0)
+"""
+
+cpu = PipelineProcessor.PipelineProcessor()
+cpu.load_program(programa)
+
+while cpu.running:
+    cpu.step()
+
+
+print("Registros:", cpu.registers[:8])  # Mostrar los primeros registros
+print("Memoria:", cpu.memory)
+
+
+
+
+
+app = QApplication([])
+mainWindow = MainWindowController.MainWindowController()
+mainWindow.show()
+sys.exit(app.exec())
+'''
+'''
