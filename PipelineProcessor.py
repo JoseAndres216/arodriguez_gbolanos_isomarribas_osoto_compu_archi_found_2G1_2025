@@ -117,6 +117,9 @@ class PipelineProcessor:
                 rs2 = int(parts[3][1:])
                 shift_amount = self.registers[rs2] & 0x1F  # Solo 5 bits permitidos
                 self.registers[rd] = self.registers[rs1] << shift_amount 
+            
+            elif op == "NOP":
+                pass
                                     
             else:
                 print(f"Instrucción no soportada: {op}")
