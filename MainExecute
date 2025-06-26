@@ -1,0 +1,73 @@
+from PyQt6.QtWidgets import QMainWindow, QApplication
+import sys
+import MainWindowController, MainWindow
+import PipelineProcessor
+import PipelineSegmentado
+
+programaAndOrXorSll = """
+ADDI x1, x0, 15
+ADDI x2, x0, 1
+AND x3, x1, x2
+OR x4, x1, x2
+XOR x5, x1, x2
+SLL x6, x1, x2
+"""
+
+programaEscrituraLectura = """
+ADDI x1, x0, 100
+ADDI x2, x0, 42
+SW x2, 0(x1)
+ADDI x3, x0, 0
+LW x3, 0(x1)
+"""
+
+programaConSaltos = """
+ADDI x1, x0, 5
+ADDI x2, x0, 5
+BEQ x1, x2, igual
+ADDI x3, x0, 555
+igual:
+ADDI x6, x0, 42
+"""
+
+programaSegmentado = """
+ADDI x1, x0, 5
+ADDI x2, x0, 5
+BEQ x1, x2, igual
+ADDI x3, x0, 99
+igual:
+ADD x4, x1, x2
+SW x4, 0(x0)
+LW x5, 0(x0)
+"""
+
+'''esta es la llamada al pipeline sin segmentar'''
+cpu = PipelineProcessor.PipelineProcessor()
+cpu.load_program(programaConSaltos)#cambiar a diferentes programas para diferentes pruebas (NO programaSegmentado)
+while cpu.running:
+    cpu.step()
+    
+''' esta es la llamada al pipeline segmentado, descomentar para probar.
+cpu = PipelineSegmentado.PipelineSegmentado()
+cpu.load_program(programaSegmentado)
+#while cpu.running:
+for _ in range(15):
+    cpu.tick()
+
+
+'''
+
+
+
+print("Registros:", cpu.registers[:8])  # Mostrar los primeros registros
+print("Memoria:", cpu.memory)
+
+
+
+
+"""inializacion de la GUI (esta comentada por pruebas al procesador)
+app = QApplication([])
+mainWindow = MainWindowController.MainWindowController()
+mainWindow.show()
+sys.exit(app.exec())
+"""
